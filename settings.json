@@ -2,6 +2,7 @@
     "nickname": "Password_Football",
     "files": [
         {
+            "type": "base",
             "path": "resources/base"
         }
     ]
