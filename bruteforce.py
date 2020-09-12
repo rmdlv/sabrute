@@ -23,6 +23,7 @@ async def main():
 		await response.html.arender()
 		g_recaptcha_response = response.html.find('input')
 		g_recaptcha_response = g_recaptcha_response[2]
+        g_recaptcha_response = g_recaptcha_response.attrs['value']
 		data = {
 			"user_name" : userName,
 			"user_password" : userPassword,
