@@ -31,7 +31,7 @@ $ python bruteforce.py
 ```
 
 ## Сборка
-### С использование [pyinstaller](https://www.pyinstaller.org/)
+### С использованием [pyinstaller](https://www.pyinstaller.org/)
 ```bash
 $ pyinstaller -F bruteforce.py
 ```
