@@ -4,6 +4,10 @@
         {
             "type": "base",
             "path": "resources/base"
+        },
+        {
+            "type": "phantomjs",
+            "path": "resources/phantomjs.exe"
         }
     ]
 }

