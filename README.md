@@ -24,6 +24,12 @@
 | type | string | Тип файла |
 | path | string | Путь к файлу |
 
+## Установка и запуск
+```bash
+$ pip install -r requirements.txt
+$ python bruteforce.py
+```
+
 ## Сборка
 ### С использование [pyinstaller](https://www.pyinstaller.org/)
 ```bash
