@@ -11,5 +11,15 @@
 
 > Разработчик не несет ответсвенности за неправомерное использование данной программы
 
-# Автор
+## Системные требования
+- Windows 8, 10 x64
+- Python 3.6, 3.7, 3.8
+
+## Сборка
+### С использование [pyinstaller](https://www.pyinstaller.org/)
+```bash
+$ pyinstaller -F bruteforce.py
+```
+
+## Автор
 - [VK](https://vk.com/vegvs)
