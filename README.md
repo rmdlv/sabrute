@@ -15,6 +15,15 @@
 - Windows 8, 10 x64
 - Python 3.6, 3.7, 3.8
 
+## Настройка
+### Файл с настройками имеет имя settings.json и следующую структуру
+| Параметр | Тип |  Значение  |
+| - | - | - |
+| nickname | string | Никнейм игрока |
+| files | array | Пути к основным файлам |
+| type | string | Тип файла |
+| path | string | Путь к файлу |
+
 ## Сборка
 ### С использование [pyinstaller](https://www.pyinstaller.org/)
 ```bash
