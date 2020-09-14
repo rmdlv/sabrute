@@ -17,10 +17,10 @@ async def main():
 
 	session = aiohttp.ClientSession()
 
-	driver = webdriver.PhantomJS(executable_path='resources/phantomjs.exe')
+	driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs.exe'))
 	driver.get('https://samp-mobile.com/account/')
 
-	base = open('resources/base')
+	base = open(os.path.join(os.path.dirname(__file__), 'resources/base'))
 	base = base.read()
 	base = base.split()
 

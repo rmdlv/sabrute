@@ -17,8 +17,8 @@
 
 ## Установка и использование
 ```bash
-$ pip install -r requirements.txt
-$ python sabrute.py --nickname [nickname]
+$ pip install https://github.com/rmdlv/sabrute/archive/master.zip
+$ python -m --nickname [nickname]
 ```
 
 ## Автор
