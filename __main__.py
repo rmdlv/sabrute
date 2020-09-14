@@ -9,11 +9,15 @@ import argparse
 from selenium import webdriver
 
 
+# TODO: запуск веб сервера для отображения информации о процессе
+
 async def main():
 	userName = argparse.ArgumentParser()
 	userName.add_argument('--nickname', help='set nickname', required=True)
 	userName = userName.parse_args()
 	userName = userName.nickname
+
+	print('Разработчик не несет ответсвенности за неправомерное использование данной программы')
 
 	session = aiohttp.ClientSession()
 
