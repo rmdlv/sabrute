@@ -11,10 +11,6 @@
 
 > Разработчик не несет ответсвенности за неправомерное использование данной программы
 
-## Системные требования
-- Windows x64
-- Python 3
-
 ## Установка и использование
 ```bash
 $ pip install https://github.com/rmdlv/sabrute/archive/master.zip

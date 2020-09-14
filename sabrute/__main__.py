@@ -17,7 +17,13 @@ async def main():
 
 	session = aiohttp.ClientSession()
 
-	driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs.exe'))
+	if os.name == 'nt':
+		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs.exe'))
+	else:
+		# driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs'))
+		print('Поддержка UNIX будет добавлена в скором времени')
+		input()
+		exit()
 	driver.get('https://samp-mobile.com/account/')
 
 	base = open(os.path.join(os.path.dirname(__file__), 'resources/base'))
@@ -53,15 +59,24 @@ async def main():
 				continue
 			else:
 				if status == 'ok':
-					os.system('cls')
+					if os.name == 'nt':
+						os.system('cls')
+					else:
+						os.system('clear')
 					print(f'Верный пароль: {userPassword}\nВремя: {int(workTime)}')
 					input()
 					exit()
 				else:
-					os.system('cls')
+					if os.name == 'nt':
+						os.system('cls')
+					else:
+						os.system('clear')
 					print(f'Текущий пароль: {userPassword}\nВремя: {int(workTime)}\nСкорость: {int(workSpeed)}')
 					break
-	os.system('cls')
+	if os.name == 'nt':
+		os.system('cls')
+	else:
+		os.system('clear')
 	print('Пароль не найден')
 	input()
 	exit()

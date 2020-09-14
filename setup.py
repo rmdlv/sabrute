@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as f:
     readme = f.read()
 
 setuptools.setup(
-    name="antmail",
+    name="sabrute",
     version="1.0.5",
     authors="rmdlv",
     author_email="ksdgdfjhgaskfgdjsgf@mail.ru",
