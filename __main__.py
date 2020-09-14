@@ -20,10 +20,7 @@ async def main():
 	if os.name == 'nt':
 		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs.exe'))
 	else:
-		# driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs'))
-		print('Поддержка UNIX будет добавлена в скором времени')
-		input()
-		exit()
+		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs'))
 	driver.get('https://samp-mobile.com/account/')
 
 	base = open(os.path.join(os.path.dirname(__file__), 'resources/base'))
