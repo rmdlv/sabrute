@@ -15,10 +15,10 @@
 - Windows x64
 - Python 3
 
-## Установка и запуск
+## Установка и использование
 ```bash
-$ pip install https://github.com/rmdlv/sabrute/archive/master.zip
-$ sabrute
+$ pip install -r requirements.txt
+$ python sabrute.py --nickname [nickname]
 ```
 
 ## Автор

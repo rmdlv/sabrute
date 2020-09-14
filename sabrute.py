@@ -4,17 +4,23 @@ import asyncio
 import json
 import time
 import os
+import argparse
 
 from selenium import webdriver
 
 
 async def main():
+	userName = argparse.ArgumentParser()
+	userName.add_argument('--nickname', help='set nickname', required=True)
+	userName = userName.parse_args()
+	userName = userName.nickname
+
 	session = aiohttp.ClientSession()
 
-	driver = webdriver.PhantomJS()
+	driver = webdriver.PhantomJS(executable_path='resources/phantomjs.exe')
 	driver.get('https://samp-mobile.com/account/')
-	userName = ''
-	base = open('base')
+
+	base = open('resources/base')
 	base = base.read()
 	base = base.split()
 
@@ -48,13 +54,17 @@ async def main():
 			else:
 				if status == 'ok':
 					os.system('cls')
-					print(f'\rВерный пароль: {userPassword}')
+					print(f'Верный пароль: {userPassword}\nВремя: {int(workTime)}')
 					input()
 					exit()
 				else:
 					os.system('cls')
-					print(f'\rТекущий пароль: {userPassword}\nВремя: {int(workTime)}\nСкорость: {int(workSpeed)}')
+					print(f'Текущий пароль: {userPassword}\nВремя: {int(workTime)}\nСкорость: {int(workSpeed)}')
 					break
+	os.system('cls')
+	print('Пароль не найден')
+	input()
+	exit()
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
