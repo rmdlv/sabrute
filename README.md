@@ -17,7 +17,7 @@
 
 ## Установка и запуск
 ```bash
-$ pip install sabrute
+$ pip install https://github.com/rmdlv/sabrute/archive/master.zip
 $ python -m sabrute
 ```
 
