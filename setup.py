@@ -14,6 +14,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     license="Mozilla Public License 2.0",
     keywords="samp mobile bruteforce",
+    entry_points={"console_scripts": ["sabrute=sabrute.sabrute"]},
     classifiers=[
         "Development Status :: 1 - In Dev",
         "Programming Language :: Python :: >=3.6",
@@ -25,6 +26,5 @@ setuptools.setup(
         "Documentation":
         "https://github.com/rmdlv/sabrute/blob/master/README.md",
     },
-    python_requires=">=3.6",
-    install_requires=["aiohttp", "selenium"],
+    python_requires=">=3.6"
 )

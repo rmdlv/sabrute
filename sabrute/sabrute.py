@@ -11,10 +11,10 @@ from selenium import webdriver
 async def main():
 	session = aiohttp.ClientSession()
 
-	driver = webdriver.PhantomJS(executable_path='resources/phantomjs.exe')
+	driver = webdriver.PhantomJS()
 	driver.get('https://samp-mobile.com/account/')
 	userName = ''
-	base = open('resources/phantomjs.exe')
+	base = open('base')
 	base = base.read()
 	base = base.split()
 
