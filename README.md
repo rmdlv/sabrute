@@ -15,25 +15,10 @@
 - Windows x64
 - Python 3
 
-## Настройка
-### Файл с настройками имеет имя settings.json и следующую структуру
-| Параметр | Тип |  Значение  |
-| - | - | - |
-| nickname | string | Никнейм игрока |
-| files | array | Пути к основным файлам |
-| type | string | Тип файла |
-| path | string | Путь к файлу |
-
 ## Установка и запуск
 ```bash
-$ pip install -r requirements.txt
-$ python bruteforce.py
-```
-
-## Сборка
-### С использованием [pyinstaller](https://www.pyinstaller.org/)
-```bash
-$ pyinstaller -F bruteforce.py
+$ pip install sabrute
+$ python -m sabrute
 ```
 
 ## Автор
