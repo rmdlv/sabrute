@@ -21,6 +21,7 @@ async def main():
 		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs.exe'))
 	else:
 		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs'))
+	# TODO: поддержка 32 битных систем
 	driver.get('https://samp-mobile.com/account/')
 
 	base = open(os.path.join(os.path.dirname(__file__), 'resources/base'))
@@ -36,7 +37,9 @@ async def main():
 			workSpeed = id / workTime
 		except:
 			workSpeed = 0
+
 		while True:
+			# TODO: получение токена напрямую через логи браузера
 			driver.execute_script("grecaptcha.ready(function() {grecaptcha.execute('6LfhuPcUAAAAAPTrbOFLnwQMXDbkTrwDeZ6xodrO', {action: 'homepage'}).then(function(token) {document.getElementById('g-recaptcha-response').value=token;});});")
 			g_recaptcha_response = driver.find_element_by_id('g-recaptcha-response')
 			g_recaptcha_response = g_recaptcha_response.get_attribute('value')
@@ -52,9 +55,11 @@ async def main():
 			response = await response.json()
 			status = response['status']
 			message = response['message']
+			# WTF
 			if message == 'Вы не проходите проверку от Google Recaptcha.':
 				continue
 			else:
+				# TODO: запись информации о процессе в файл
 				if status == 'ok':
 					if os.name == 'nt':
 						os.system('cls')
@@ -70,6 +75,7 @@ async def main():
 						os.system('clear')
 					print(f'Текущий пароль: {userPassword}\nВремя: {int(workTime)}\nСкорость: {int(workSpeed)}')
 					break
+
 	if os.name == 'nt':
 		os.system('cls')
 	else:
