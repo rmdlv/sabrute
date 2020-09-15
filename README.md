@@ -12,10 +12,33 @@
 > Разработчик не несет ответсвенности за неправомерное использование данной программы
 
 ## Установка и использование
-```bash
-$ pip install https://github.com/rmdlv/sabrute/archive/master.zip
-$ python -m sabrute --nickname [nickname]
-```
+Установка Python
+    **Windows**
+    Скачать Python можно с официального [сайта](https://python.org/downloads), при установке необходимо поставить галочку **Add Python to PATH**
+    **Linux**
+    ```bash
+    apt install python3
+    ```
+        **Android**
+        Необходимо установить [Termux](https://play.google.com/store/apps/details?id=com.termux), для ввода в него следующей команды
+        ```bash
+        pkg install python
+        ```
+
+Установка sabrute (независимо от платформы)
+    ```bash
+    pip3 install https://github.com/rmdlv/sabrute/archive/master.zip
+    ```
+
+Использование
+    ```bash
+    sabrute --nickname [nickname]
+    ```
+    Пример
+    ```bash
+    sabrute --nickname Andre_Sucre
+    ```
 
 ## Автор
 - [VK](https://vk.com/vegvs)
+- [TG](https://t.me/pycharmgovno)

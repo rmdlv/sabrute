@@ -11,7 +11,7 @@ from selenium import webdriver
 
 # TODO: запуск веб сервера для отображения информации о процессе
 
-async def main():
+async def mainAsync():
 	userName = argparse.ArgumentParser()
 	userName.add_argument('--nickname', help='set nickname', required=True)
 	userName = userName.parse_args()
@@ -88,5 +88,9 @@ async def main():
 	input()
 	exit()
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+def main():
+	loop = asyncio.get_event_loop()
+	loop.run_until_complete(mainAsync())
+
+if __name__ == '__main__':
+	main()
