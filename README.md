@@ -19,11 +19,11 @@
     ```bash
     apt install python3
     ```
-        **Android**
-        Необходимо установить [Termux](https://play.google.com/store/apps/details?id=com.termux), для ввода в него следующей команды
-        ```bash
-        pkg install python
-        ```
+    **Android**
+    Необходимо установить [Termux](https://play.google.com/store/apps/details?id=com.termux), для ввода в него следующей команды
+    ```bash
+    pkg install python
+    ```
 
 2. Установка sabrute (независимо от платформы)
     ```bash
