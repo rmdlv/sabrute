@@ -12,9 +12,9 @@
 > Разработчик не несет ответсвенности за неправомерное использование данной программы
 
 ## Установка и использование
-Установка Python
+1. Установка Python
     **Windows**
-    Скачать Python можно с официального [сайта](https://python.org/downloads), при установке необходимо поставить галочку **Add Python to PATH**
+    Скачать Python можно с официального [сайта](https://python.org/downloads), при установке необходимо поставить галочку Add Python to PATH
     **Linux**
     ```bash
     apt install python3
@@ -25,12 +25,12 @@
         pkg install python
         ```
 
-Установка sabrute (независимо от платформы)
+2. Установка sabrute (независимо от платформы)
     ```bash
     pip3 install https://github.com/rmdlv/sabrute/archive/master.zip
     ```
 
-Использование
+3. Использование
     ```bash
     sabrute --nickname [nickname]
     ```
