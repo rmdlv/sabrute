@@ -17,27 +17,27 @@
     Скачать Python можно с официального [сайта](https://python.org/downloads), при установке необходимо поставить галочку Add Python to PATH
 
     #### Linux
-    ```bash
+    ```sh
     apt install python3
     ```
 
     #### Android
     Необходимо установить [Termux](https://play.google.com/store/apps/details?id=com.termux), для ввода в него следующей команды
-    ```bash
+    ```sh
     pkg install python
     ```
 
 2. Установка sabrute (независимо от платформы):
-    ```bash
+    ```sh
     pip3 install https://github.com/rmdlv/sabrute/archive/master.zip
     ```
 
 3. Использование:
-    ```bash
+    ```sh
     sabrute --nickname [nickname]
     ```
     Пример
-    ```bash
+    ```sh
     sabrute --nickname Andre_Sucre
     ```
 
