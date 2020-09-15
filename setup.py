@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/rmdlv/sabrute",
     packages=setuptools.find_packages(),
-    entry_points={"console_scripts": ["sabrute=sabrute:main"]},
+    entry_points={"console_scripts": ["sabrute=sabrute.sabrute:main"]},
     license="Mozilla Public License 2.0",
     keywords="samp mobile bruteforce",
     project_urls={
