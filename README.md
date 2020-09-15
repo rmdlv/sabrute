@@ -15,10 +15,12 @@
 1. Установка Python:
     #### Windows
     Скачать Python можно с официального [сайта](https://python.org/downloads), при установке необходимо поставить галочку **Add Python to PATH**
+
     #### Linux
     ```bash
     apt install python3
     ```
+    
     #### Android
     Необходимо установить [Termux](https://play.google.com/store/apps/details?id=com.termux), для ввода в него следующей команды
     ```bash
