@@ -5,6 +5,9 @@ import json
 import time
 import os
 import argparse
+import wget
+import zipfile
+import tarfile
 
 from selenium import webdriver
 
@@ -22,9 +25,15 @@ async def mainAsync():
 	session = aiohttp.ClientSession()
 
 	if os.name == 'nt':
-		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs.exe'))
+		if not os.path.exists(os.path.join(os.path.dirname(__file__), 'resources/phantomjs-2.1.1-windows/bin/phantomjs.exe')):
+			wget.download('https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-windows.zip', out=os.path.join(os.path.dirname(__file__), 'resources'))
+			zipfile.ZipFile(os.path.join(os.path.dirname(__file__), 'resources/phantomjs-2.1.1-windows.zip'), 'r').extractall(os.path.join(os.path.dirname(__file__), 'resources'))
+		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs-2.1.1-windows/bin/phantomjs.exe'))
 	else:
-		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs'))
+		if not os.path.exists(os.path.join(os.path.dirname(__file__), 'resources/phantomjs-2.1.1-linux-x86_64/bin/phantomjs')):
+			wget.download('https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2', out=os.path.join(os.path.dirname(__file__), 'resources'))
+			tarfile.open(os.path.join(os.path.dirname(__file__), 'resources/phantomjs-2.1.1-windows.zip'), 'r:bz2').extractall(os.path.join(os.path.dirname(__file__), 'resources'))
+		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs-2.1.1-linux-x86_64/bin/phantomjs'))
 	# TODO: поддержка 32 битных систем
 	driver.get('https://samp-mobile.com/account/')
 

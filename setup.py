@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setuptools.setup(
     name="sabrute",
-    version="1.0.6",
+    version="1.0.7",
     authors="rmdlv",
     author_email="ksdgdfjhgaskfgdjsgf@mail.ru",
     description="Программа для подбора паролей SAMP Mobile",
