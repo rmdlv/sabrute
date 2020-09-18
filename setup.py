@@ -23,5 +23,5 @@ setuptools.setup(
         "https://github.com/rmdlv/sabrute/blob/master/README.md",
     },
     python_requires=">=3.6",
-    install_requires=["aiohttp", "selenium"]
+    install_requires=["aiohttp", "selenium", "wget"]
 )
