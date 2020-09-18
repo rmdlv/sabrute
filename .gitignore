@@ -2,3 +2,5 @@ ghostdriver.log
 build/
 dist/
 sabrute.egg-info
+.vscode/
+scripts/
