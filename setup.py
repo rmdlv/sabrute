@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setuptools.setup(
     name="sabrute",
-    version="1.1.7",
+    version="1.0",
     authors="rmdlv",
     author_email="ksdgdfjhgaskfgdjsgf@mail.ru",
     description="Программа для подбора паролей SAMP Mobile",
@@ -23,5 +23,5 @@ setuptools.setup(
         "https://github.com/rmdlv/sabrute/blob/master/README.md",
     },
     python_requires=">=3.6",
-    install_requires=["aiohttp", "selenium", "wget"]
+    install_requires=["aiohttp", "selenium"]
 )

@@ -29,7 +29,7 @@
 
 2. Установка sabrute (независимо от платформы):
     ```sh
-    pip3 install sabrute
+    pip3 install https://github.com/rmdlv/sabrute/archive/master.zip
     ```
 
 3. Использование:
