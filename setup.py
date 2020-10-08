@@ -13,6 +13,8 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/rmdlv/sabrute",
     packages=["sabrute"],
+    package_data={"sabrute": ["resources/phantomjs.exe", "resources/phantomjs", "resources/base"]},
+    include_package_data=True,
     entry_points={"console_scripts": ["sabrute=sabrute.sabrute:main"]},
     license="Mozilla Public License 2.0",
     keywords="samp mobile bruteforce",

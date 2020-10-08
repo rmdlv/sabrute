@@ -22,13 +22,13 @@ async def mainAsync():
 	session = aiohttp.ClientSession()
 
 	if os.name == 'nt':
-		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources\\phantomjs.exe'))
+		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\phantomjs.exe'))
 	else:
-		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources\\phantomjs'))
+		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\phantomjs'))
 	# TODO: поддержка 32 битных систем
 	driver.get('https://samp-mobile.com/account/')
 
-	base = open(os.path.join(os.path.dirname(__file__), 'resources\\base'))
+	base = open(os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\base'))
 	base = base.read()
 	base = base.split()
 
