@@ -25,19 +25,19 @@ async def mainAsync():
 	session = aiohttp.ClientSession()
 
 	if os.name == 'nt':
-		if not os.path.exists(os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe')):
-			wget.download('https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-windows.zip', out=os.path.join(os.path.dirname(__file__), 'sabrute/resources'))
-			zipfile.ZipFile(os.path.join(os.path.dirname(__file__), 'sabrute/resources/phantomjs-2.1.1-windows.zip'), 'r').extractall(os.path.join(os.path.dirname(__file__), 'sabrute\\resources'))
-		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe'))
+		if not os.path.exists(os.path.join(os.path.dirname(__file__), 'sabrute\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe')):
+			wget.download('https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-windows.zip')
+			zipfile.ZipFile(os.path.join(os.path.dirname(__file__), 'sabrute/phantomjs-2.1.1-windows.zip'), 'r').extractall(os.path.join(os.path.dirname(__file__), 'sabrute'))
+		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'sabrute\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe'))
 	else:
-		if not os.path.exists(os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\phantomjs-2.1.1-linux-x86_64\\bin\\phantomjs')):
-			wget.download('https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2', out=os.path.join(os.path.dirname(__file__), 'sabrute/resources'))
-			tarfile.open(os.path.join(os.path.dirname(__file__), 'sabrute/resources/phantomjs-2.1.1-windows.zip'), 'r:bz2').extractall(os.path.join(os.path.dirname(__file__), 'sabrute\\resources'))
-		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\phantomjs-2.1.1-linux-x86_64\\bin\\phantomjs'))
+		if not os.path.exists(os.path.join(os.path.dirname(__file__), 'sabrute\\phantomjs-2.1.1-linux-x86_64\\bin\\phantomjs')):
+			wget.download('https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2')
+			tarfile.open(os.path.join(os.path.dirname(__file__), 'sabrute/phantomjs-2.1.1-windows.zip'), 'r:bz2').extractall(os.path.join(os.path.dirname(__file__), 'sabrute'))
+		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'sabrute\\phantomjs-2.1.1-linux-x86_64\\bin\\phantomjs'))
 	# TODO: поддержка 32 битных систем
 	driver.get('https://samp-mobile.com/account/')
 
-	base = open(os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\base'))
+	base = open(os.path.join(os.path.dirname(__file__), 'sabrute\\base'))
 	base = base.read()
 	base = base.split()
 
