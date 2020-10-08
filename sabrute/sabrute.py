@@ -31,7 +31,7 @@ async def mainAsync():
 		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe'))
 	else:
 		if not os.path.exists(os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\phantomjs-2.1.1-linux-x86_64\\bin\\phantomjs')):
-			wget.download('https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2', out=os.path.join(os.path.dirname(__file__), 'sabrute/resources/'))
+			wget.download('https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2', out=os.path.join(os.path.dirname(__file__), 'sabrute/resources'))
 			tarfile.open(os.path.join(os.path.dirname(__file__), 'sabrute/resources/phantomjs-2.1.1-windows.zip'), 'r:bz2').extractall(os.path.join(os.path.dirname(__file__), 'sabrute\\resources'))
 		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'sabrute\\resources\\phantomjs-2.1.1-linux-x86_64\\bin\\phantomjs'))
 	# TODO: поддержка 32 битных систем
