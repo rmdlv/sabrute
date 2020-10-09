@@ -21,16 +21,21 @@ async def mainAsync():
 
 	session = aiohttp.ClientSession()
 
+	# Windows
 	if os.name == 'nt':
 		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources\\phantomjs.exe'))
+		base = open(os.path.join(os.path.dirname(__file__), 'resources\\base'))
+		base = base.read()
+		base = base.split()
+	# Linux
 	else:
-		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources\\phantomjs'))
+		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs'))
+		base = open(os.path.join(os.path.dirname(__file__), 'resources/base'))
+		base = base.read()
+		base = base.split()
 	# TODO: поддержка 32 битных систем
-	driver.get('https://samp-mobile.com/account/')
 
-	base = open(os.path.join(os.path.dirname(__file__), 'resources\\base'))
-	base = base.read()
-	base = base.split()
+	driver.get('https://samp-mobile.com/account/')
 
 	startTime = time.time()
 
@@ -88,6 +93,7 @@ async def mainAsync():
 	input()
 	exit()
 
+# WTF
 def main():
 	loop = asyncio.get_event_loop()
 	loop.run_until_complete(mainAsync())

@@ -19,12 +19,13 @@
     #### Linux
     ```sh
     apt install python3
+    apt install python3-pip
     ```
 
     #### Android
     Необходимо установить [Termux](https://play.google.com/store/apps/details?id=com.termux), для ввода в него следующей команды
     ```sh
-    pkg install python3
+    pkg install python
     ```
 
 2. Установка sabrute (независимо от платформы):
