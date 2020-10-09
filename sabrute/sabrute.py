@@ -5,6 +5,7 @@ import json
 import time
 import os
 import argparse
+import platform
 
 from selenium import webdriver
 from colorama import init, Fore, Back, Style
@@ -32,7 +33,12 @@ async def mainAsync():
 		base = base.split()
 	# Linux
 	else:
-		driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs'))
+		resources = os.path.join(os.path.dirname(__file__), 'resources/*')
+		os.system(f'chmod 777 {resources}')
+		if platform.architecture()[0] == '64bit':
+			driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs'))
+		else:
+			driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs32'))
 		base = open(os.path.join(os.path.dirname(__file__), 'resources/base'))
 		base = base.read()
 		base = base.split()

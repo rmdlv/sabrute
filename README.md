@@ -28,7 +28,7 @@
     pkg install python
     ```
 
-2. Установка sabrute (независимо от платформы):
+2. Установка sabrute:
     ```sh
     pip3 install sabrute
     ```
@@ -36,10 +36,6 @@
 3. Использование:
     ```sh
     sabrute --nickname [nickname]
-    ```
-    Пример
-    ```sh
-    sabrute --nickname Andre_Sucre
     ```
 
 ## Автор
