@@ -36,13 +36,16 @@ async def mainAsync():
 		resources = os.path.join(os.path.dirname(__file__), 'resources/*')
 		os.system(f'chmod 777 {resources}')
 		if platform.architecture()[0] == '64bit':
-			driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs'))
+			try:
+				driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs'))
+			except:
+				driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjsARM'))
 		else:
 			driver = webdriver.PhantomJS(executable_path=os.path.join(os.path.dirname(__file__), 'resources/phantomjs32'))
 		base = open(os.path.join(os.path.dirname(__file__), 'resources/base'))
 		base = base.read()
 		base = base.split()
-	# TODO: поддержка 32 битных систем
+	# TODO: поддержка 32 битных и ARM систем
 
 	driver.get('https://samp-mobile.com/account/')
 

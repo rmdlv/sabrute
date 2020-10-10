@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setuptools.setup(
     name="sabrute",
-    version="1.0.3",
+    version="1.0.4",
     authors="rmdlv",
     author_email="ksdgdfjhgaskfgdjsgf@mail.ru",
     description="Программа для подбора паролей SAMP Mobile",
@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/rmdlv/sabrute",
     packages=["sabrute"],
-    package_data={"sabrute": ["resources/phantomjs.exe", "resources/phantomjs", "resources/phantomjs32", "resources/base"]},
+    package_data={"sabrute": ["resources/phantomjs.exe", "resources/phantomjs", "resources/phantomjs32", "resources/phantomjsARM", "resources/base"]},
     include_package_data=True,
     entry_points={"console_scripts": ["sabrute=sabrute.sabrute:main"]},
     license="Mozilla Public License 2.0",
